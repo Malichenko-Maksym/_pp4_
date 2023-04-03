@@ -1,8 +1,5 @@
 package pl.jkanclerz;
 
-import pl.jkanclerz.creditcard.CreditCard;
-
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -29,10 +26,6 @@ public class Main {
                 .filter(name -> name.startsWith("A"))
                 .map(String::toUpperCase)
                 .forEach(greeter::greet);
-
-        CreditCard card2 = new CreditCard("1234-5679");
-        //Act
-        card2.assignLimit(BigDecimal.valueOf(1000));
 
     }
 }
