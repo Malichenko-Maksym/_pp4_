@@ -1,4 +1,4 @@
-package pl.jkanclerz.productCatalog;
+package pl.jkanclerz.productcatalog;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -101,7 +101,7 @@ public class ProductCatalogTest {
 
     private ProductCatalog thereIsProductCatalog() {
         return new ProductCatalog(
-                new DbProductStorage()
+                new HashMapProductStorage()
         );
     }
 
