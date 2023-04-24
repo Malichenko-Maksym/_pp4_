@@ -41,6 +41,10 @@ public class Product {
         return image;
     }
 
+    public String getDesc() {
+        return desc;
+    }
+
     public void setImage(String imageKey) {
 
         image = imageKey;

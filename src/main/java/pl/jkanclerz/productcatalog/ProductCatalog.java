@@ -5,7 +5,7 @@ import java.util.*;
 
 public class ProductCatalog {
     // Business
-    // Technicaln
+    // Technical
     private ProductStorage productStorage;
 
     public ProductCatalog(ProductStorage productStorage) {
