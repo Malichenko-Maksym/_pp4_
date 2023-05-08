@@ -1,8 +1,4 @@
-package pl.jkanclerz.productCatalog;
-
-import pl.jkanclerz.productcatalog.Product;
-import pl.jkanclerz.productcatalog.ProductCantBePublishedException;
-
+package pl.jkanclerz.productcatalog;
 
 import java.math.BigDecimal;
 import java.util.*;
