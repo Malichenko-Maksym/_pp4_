@@ -4,9 +4,9 @@ import java.math.BigDecimal;
 import java.util.*;
 
 public class ProductCatalog {
-    // Business
-    // Technical
-    private ProductStorage productStorage;
+    //Biznes
+    //Tech
+    ProductStorage productStorage;
 
     public ProductCatalog(ProductStorage productStorage) {
         this.productStorage = productStorage;
@@ -17,14 +17,13 @@ public class ProductCatalog {
     }
 
     public String addProduct(String name, String desc) {
-        Product newOne =  new Product(
+        Product newOne = new Product(
                 UUID.randomUUID(),
                 name,
                 desc
         );
 
         productStorage.add(newOne);
-
         return newOne.getId();
     }
 
@@ -33,32 +32,29 @@ public class ProductCatalog {
     }
 
     public void changePrice(String productId, BigDecimal newPrice) {
-        Product product = loadById(productId);
-
-        product.changePrice(newPrice);
+        Product loaded = productStorage.loadById(productId);
+        loaded.changePrice(newPrice);
     }
 
     public void assignImage(String productId, String imageKey) {
-        Product product = loadById(productId);
-
-        product.setImage(imageKey);
-    }
-
-    public void publishProduct(String productId) {
-        Product product = loadById(productId);
-
-        if (product.getImage() == null) {
-            throw new ProductCantBePublishedException();
-        }
-
-        if (product.getPrice() == null) {
-            throw new ProductCantBePublishedException();
-        }
-
-        product.setOnline(true);
+        Product loaded = productStorage.loadById(productId);
+        loaded.setImage(imageKey);
     }
 
     public List<Product> allPublishedProducts() {
         return productStorage.allPublishedProducts();
+    }
+
+    public void publishProduct(String productId) {
+        Product loaded = loadById(productId);
+        if (loaded.getPrice() == null) {
+            throw new ProductCantBePublishedException();
+        }
+
+        if (loaded.getImageKey() == null) {
+            throw new ProductCantBePublishedException();
+        }
+
+        loaded.setOnline();
     }
 }
